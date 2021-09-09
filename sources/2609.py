@@ -1,10 +1,6 @@
-gcd = 1
-a,b = map(int,input().split())
-i = 2
+import math
 
-while (i<=min(a,b)):
-    if a % i ==0 and b%i ==0:
-        gcd=i
-    i+=1
+a, b = map(int, input().split())
 
-print(gcd)
+print(math.gcd(a, b))
+print(math.lcm(a, b))
