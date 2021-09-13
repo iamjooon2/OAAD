@@ -1,6 +1,6 @@
 # 기찍 N
 
-i = int(input())
+n = int(input())
 
 for i in range(n):
     print(n-i)
