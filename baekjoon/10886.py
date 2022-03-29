@@ -1,5 +1,5 @@
 N = int(input())
-cute, not_cute = 0
+cute, not_cute = 0, 0
 
 for i in range(N):
     vote = int(input())
