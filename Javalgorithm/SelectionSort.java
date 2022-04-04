@@ -20,10 +20,10 @@ public class SelectionSort{
     }
 
     public static void selectionSort(int[] arr, int n){
-        for (int i=n; i>0; i-=1){
-            int k = theLargest(arr, i);
-            int tmp = arr[i-1];
-            arr[i-1] = arr[k];
+        for (int i=0; i<n; n-=1){
+            int k = theLargest(arr, n);
+            int tmp = arr[n-1];
+            arr[n-1] = arr[k];
             arr[k] = tmp;
         }
     }
