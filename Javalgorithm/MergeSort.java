@@ -1,21 +1,27 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class MergeSort {
 
-    public static int[] tmp;
+    public static int[] tmp = new int[10];
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-
+        Random random = new Random();
         int[] arr = new int[10];
-        tmp = new int[arr.length];
-        System.out.printf("숫자 10개를 입력하세요: ");
-        for (int i=0; i<arr.length; i+=1) {
-            arr[i] = scan.nextInt();
+
+        int max = 99;
+        int min = 10;
+        for (int i=0; i<arr.length; i+=1){
+            arr[i] = random.nextInt(max-min) + min;
         }
+
+        System.out.printf("랜덤으로 생성된 배열: ");
+        for (int i=0; i<arr.length; i+=1){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
 
         mergeSort(arr, 0, arr.length-1);
 
-        System.out.printf("병합 정렬 완료!: ");
+        System.out.print("병합 정렬 완료!: ");
         for (int i=0; i<arr.length; i+=1){
             System.out.print(arr[i] + " ");
         }
@@ -34,7 +40,7 @@ public class MergeSort {
         int i = p;
         int j = q+1;
         int k = p;
-        while (i <= q && j <= r){
+        while (i<=q && j<=r){
             if (arr[i] <= arr[j]){
                 tmp[k] = arr[i];
                 k += 1;

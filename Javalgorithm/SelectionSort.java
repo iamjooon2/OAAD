@@ -1,15 +1,22 @@
-import java.util.Scanner;
+import java.util.Random;
 
 public class SelectionSort{
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-
+        Random random = new Random();
         int[] arr = new int[10];
-        System.out.printf("숫자 10개를 입력하세요: ");
+
+        int max = 99;
+        int min = 10;
 
         for (int i=0; i<arr.length; i+=1){
-            arr[i] = scan.nextInt();
+            arr[i] = random.nextInt(max-min) + min;
         }
+
+        System.out.printf("랜덤으로 생성된 배열: ");
+        for (int i=0; i<arr.length; i+=1){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
 
         selectionSort(arr, arr.length);
 
