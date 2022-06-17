@@ -11,7 +11,7 @@ def zero_one_knapsack_backtracking (i, profit, weight):
         zero_one_knapsack_backtracking(i + 1, profit, weight)
 
 def promising(i, profit, weight):
-    if (weight > W):
+    if (weight > knapsack_weight):
         return False
     else:
         j = i + 1
