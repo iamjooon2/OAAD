@@ -1,22 +1,29 @@
-def zero_one_knapsack_bottom_up(i, knapsack_weight, weight, profit):
-    if (i <= 0 or knapsack_weight <= 0):
-        return 0
-    if (weight[i] > knapsack_weight):
-        value = zero_one_knapsack_bottom_up(i - 1, knapsack_weight, weight, profit)
-        print(i - 1, knapsack_weight, value)
-        return value
-    else:
-        left = zero_one_knapsack_bottom_up(i - 1, knapsack_weight, weight, profit)
-        print(i - 1, knapsack_weight, left)
-        right = zero_one_knapsack_bottom_up(i - 1, knapsack_weight - weight[i], weight, profit)
-        print(i - 1, knapsack_weight - weight[i], right)
-        return max(left, profit[i] + right)
+def zero_one_knapsack_bottom_up(cargo):
+    capacity = 15 #배낭의 최대 무게
+    pack = []
 
+    for i in range(len(cargo) + 1):
+        pack.append([])
+        for c in range(capacity + 1):
+            if i == 0 or c == 0:
+                pack[i].append(0)
+            elif cargo[i-1][1] <= c:
+                pack[i].append(
+                    max(
+                        cargo[i-1][0] + pack[i - 1][c- cargo[i-1][1]],
+                        pack[i-1][c]
+                    ))
+            else:
+                pack[i].append(pack[i-1][c])
+    return pack[-1][-1]
 
-knapsack_weight = 15
-weight = [12, 1, 4, 1, 2]
-profit = [4, 2, 10, 1, 2]
+cargo = [ #(이익, 무게)
+    (4, 12),
+    (2, 1),
+    (10, 4),
+    (1, 1),
+    (2, 2)
+]
 
-result = zero_one_knapsack_bottom_up(len(weight)-1, knapsack_weight, weight, profit)
-
-print(result)
+r = zero_one_knapsack_bottom_up(cargo)
+print(r)
