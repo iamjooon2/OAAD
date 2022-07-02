@@ -3,7 +3,8 @@ N = int(input())
 for i in range(N):
     stack = []
     is_vps = True
-    for ch in input():
+    T = input()
+    for ch in T:
         if ch == '(':
             stack.append(ch)
         else:
