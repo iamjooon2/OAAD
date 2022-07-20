@@ -11,9 +11,9 @@
 
 N, M = map(int, input().split())
 
-result = []
+min_nums = []
 for card in range(N):
     row = list(map(int, input().split()))
-    result.append(min(row))
+    min_nums.append(min(row))
 
-print(max(result))
+print(max(min_nums))
