@@ -1,4 +1,4 @@
-₩n, m = map(int, input().split())
+n, m = map(int, input().split())
 village = []
 
 for i in range(n):
