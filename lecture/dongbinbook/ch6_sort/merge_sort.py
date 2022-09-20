@@ -1,4 +1,6 @@
-def merge_sort(a):
+array = [3, 7, 1, 6, 2, 9, 10]
+
+def merge_sort(array):
     def sort(unsorted_list):
         if len(unsorted_list) <= 1:
             return
@@ -14,21 +16,21 @@ def merge_sort(a):
         i, j, k = 0, 0, 0
         while (i < len(left)) and (j < len(right)):
             if left[i] < right[j]:
-                a[k] = left[i]
+                array[k] = left[i]
                 i += 1
                 k += 1
             else:
-                a[k] = right[j]
+                array[k] = right[j]
                 j += 1
                 k += 1
         # 남은 데이터 삽입
         while i < len(left):
-            a[k] = left[i]
+            array[k] = left[i]
             i += 1
             k += 1
         while j < len(right):
-            a[k] = right[j]
+            array[k] = right[j]
             j += 1
             k += 1
-        print(a)
-    sort(a)
+        print(array)
+    sort(array)
