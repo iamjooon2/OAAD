@@ -10,4 +10,5 @@ for i in range(num):
             change = True
     if change:
         count += 1
+
 print(count)
