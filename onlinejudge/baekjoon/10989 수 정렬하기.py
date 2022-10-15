@@ -15,5 +15,5 @@ for j in range(1, 10001):
     while arr[j]:
         # 프린트해주고
         print(j)
-        # 인덱스를 하나 빼 줌
+        # 개수 하나 빼 줌
         arr[j] -= 1
