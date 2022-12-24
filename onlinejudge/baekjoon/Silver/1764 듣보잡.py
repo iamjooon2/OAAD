@@ -1,19 +1,17 @@
 n, m = map(int, input().split())
 
 a = set()
+for _ in range(n):
+    i = input()
+    a.add(i)
+
 b = set()
-
-for i in range(n):
-    k = input()
-    a.add(k)
-
-for i in range(n):
-    k = input()
-    b.add(k)
+for _ in range(n):
+    j = input()
+    b.add(j)
 
 result = sorted(list(a&b))
-
 print(len(result))
 
-for i in result:
-    print(i)
+for k in result:
+    print(k)
