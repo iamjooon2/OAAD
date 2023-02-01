@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 
@@ -14,45 +12,48 @@ public class Main {
     private static final int POSITIVE = 1;
     private static final int ZERO = 0;
     private static final int NEGATIVE = -1;
+    private static final String ESCAPE_SEQUENCE = "\n";
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int n = Integer.parseInt(bf.readLine());
+        int n = Integer.parseInt(bufferedReader.readLine());
         Stack<String> stack = new Stack<>();
 
         for (int i = 0; i < n; i++) {
-            String[] line = bf.readLine().split(BLANK);
+            String[] line = bufferedReader.readLine().split(BLANK);
 
             if (line[0].equals(PUSH)) {
                 stack.push(line[1]);
             }
             if (line[0].equals(POP)) {
                 if (stack.size() == ZERO) {
-                    System.out.println(-1);
+                    bufferedWriter.write(NEGATIVE + ESCAPE_SEQUENCE);
                 } else {
-                    System.out.println(Integer.parseInt(stack.pop()));
+                    bufferedWriter.write(Integer.parseInt(stack.pop()) + ESCAPE_SEQUENCE);
                 }
             }
             if (line[0].equals(SIZE)) {
                 int stackSize = stack.size();
-                System.out.println(stackSize);
+                bufferedWriter.write(stackSize + ESCAPE_SEQUENCE);
             }
             if (line[0].equals(EMPTY)) {
                 if (stack.size() == ZERO) {
-                    System.out.println(POSITIVE);
+                    bufferedWriter.write(POSITIVE + ESCAPE_SEQUENCE);
                 } else {
-                    System.out.println(ZERO);
+                    bufferedWriter.write(ZERO + ESCAPE_SEQUENCE);
                 }
             }
             if (line[0].equals(TOP)) {
                 if (stack.size() == ZERO) {
-                    System.out.println(NEGATIVE);
+                    bufferedWriter.write(NEGATIVE + ESCAPE_SEQUENCE);
                 } else {
                     String top = stack.peek();
-                    System.out.println(Integer.parseInt(top));
+                    bufferedWriter.write(Integer.parseInt(top) + ESCAPE_SEQUENCE);
                 }
             }
         }
+        bufferedWriter.close();
     }
 }
