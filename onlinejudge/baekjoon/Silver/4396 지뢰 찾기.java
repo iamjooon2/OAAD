@@ -28,38 +28,10 @@ public class Main {
 
         calculateBombCount(n, map, answer);
 
-        if (lose(status, map, n)) {
+        if (validateLose(status, map, n)) {
             loserView(n, map, status, answer);
         } else {
             winnerView(n, map, status, answer);
-        }
-    }
-
-    private static void winnerView(final int n, final char[][] map, final char[][] status, final int[][] answer) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (status[i][j] == '.') {
-                    System.out.print('.');
-                } else if (status[i][j] == 'x' && map[i][j] == '.') {
-                    System.out.print(answer[i][j]);
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    private static void loserView(final int n, final char[][] map, final char[][] status, final int[][] answer) {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (map[i][j] == '*') {
-                    System.out.print('*');
-                } else if (status[i][j] == '.' && map[i][j] == '.') {
-                    System.out.print('.');
-                } else if (status[i][j] == 'x' && map[i][j] == '.') {
-                    System.out.print(answer[i][j]);
-                }
-            }
-            System.out.println();
         }
     }
 
@@ -106,7 +78,7 @@ public class Main {
         }
     }
 
-    private static boolean lose(final char[][] status, final char[][] map, final int n) {
+    private static boolean validateLose(final char[][] status, final char[][] map, final int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (status[i][j] == 'x' && map[i][j] == '*') {
@@ -115,5 +87,33 @@ public class Main {
             }
         }
         return false;
+    }
+
+    private static void loserView(final int n, final char[][] map, final char[][] status, final int[][] answer) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (map[i][j] == '*') {
+                    System.out.print('*');
+                } else if (status[i][j] == '.' && map[i][j] == '.') {
+                    System.out.print('.');
+                } else if (status[i][j] == 'x' && map[i][j] == '.') {
+                    System.out.print(answer[i][j]);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    private static void winnerView(final int n, final char[][] map, final char[][] status, final int[][] answer) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (status[i][j] == '.') {
+                    System.out.print('.');
+                } else if (status[i][j] == 'x' && map[i][j] == '.') {
+                    System.out.print(answer[i][j]);
+                }
+            }
+            System.out.println();
+        }
     }
 }
