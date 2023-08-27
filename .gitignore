@@ -190,3 +190,5 @@ fabric.properties
 
 # Mac Support
 .DS_Store
+
+onlinejudge/programmers/sql
