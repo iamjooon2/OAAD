@@ -3,10 +3,10 @@ class Solution {
         int answer = 0;
 
         char x = s.charAt(0);
-        int count = 1;
+        int count = 0;
         
         for (char c : s.toCharArray()) {
-            if (count == 1) {
+            if (count == 0) {
                 answer += 1;
                 x = c;
             }
