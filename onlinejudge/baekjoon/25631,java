@@ -10,7 +10,7 @@ public class Main {
             final int size = scanner.nextInt();
             final int nextSize = dolls.getOrDefault(size, 0);
             
-            dolls.put(size, nextSize);
+            dolls.put(size, nextSize + 1);
         }
 
         int answer = 0;
