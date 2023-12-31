@@ -13,73 +13,41 @@ class MyQueue {
     
     public int pop() {
         int target = 0;
-        if (main.isEmpty()) {
-            while (!sub.isEmpty()) {
-                int element = sub.pop();
-                
-                if (sub.isEmpty()) {
-                    target = element;
-                    break;
-                }
-                main.push(element);
-            }
-            while (!main.isEmpty()) {
-                int element = main.pop();
-                sub.push(element);
-            }
-        } else {
-            while (!main.isEmpty()) {
-                int element = main.pop();
+        while (!main.isEmpty()) {
+            int element = main.pop();
 
-                if (main.isEmpty()) {
-                    target = element;
-                    break;
-                }
-                sub.push(element);
+            if (main.isEmpty()) {
+                target = element;
+                break;
             }
-            while (!sub.isEmpty()) {
-                int element = sub.pop();
-                main.push(element);
-            }
+            sub.push(element);
         }
-    
+        while (!sub.isEmpty()) {
+            int element = sub.pop();
+            main.push(element);
+        }
         return target;
     }
     
     public int peek() {
         int target = 0;
-        if (main.isEmpty()) {
-            while (!sub.isEmpty()) {
-                int element = sub.pop();
-                main.push(element);
+        while (!main.isEmpty()) {
+            int element = main.pop(); // 1, 2, 3, 4, 5
+            sub.push(element);
 
-                if (sub.isEmpty()) {
-                    target = element;
-                }
+            if (main.isEmpty()) {
+                target = element;
             }
-            while (!main.isEmpty()) {
-                int element = main.pop();
-                sub.push(element);
-            }
-        } else {
-            while (!main.isEmpty()) {
-                int element = main.pop(); // 1, 2, 3, 4, 5
-                sub.push(element);
-
-                if (main.isEmpty()) {
-                    target = element;
-                }
-            }
-            while (!sub.isEmpty()) {
-                int element = sub.pop();
-                main.push(element);
-            }
+        }
+        while (!sub.isEmpty()) {
+            int element = sub.pop();
+            main.push(element);
         }
         return target;
     }
     
     public boolean empty() {
-        return main.isEmpty() && sub.isEmpty();
+        return main.isEmpty();
     }
 }
 
