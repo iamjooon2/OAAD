@@ -19,3 +19,17 @@ public class Solution extends VersionControl {
         return start;
     }
 }
+
+// 시간 초과 버전
+// public class Solution extends VersionControl {
+//     public int firstBadVersion(int n) {
+//         int answer = 1;
+//         for (int i = 1; i <= n; i++) {
+//             if (isBadVersion(i)) {
+//                 answer = i;
+//                 break;
+//             }
+//         }
+//         return answer;
+//     }
+// }
