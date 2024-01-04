@@ -12,22 +12,18 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         var br = new BufferedReader(new InputStreamReader(System.in));
+        br.readLine();
 
-        N = Integer.parseInt(br.readLine());
-        String[] split = br.readLine().split(" ");
-        for (String element : split) {
+        for (String element : br.readLine().split(" ")) {
             int input = Integer.parseInt(element);
             map.put(input, map.getOrDefault(input, 0) + 1);
         }
 
-        M = Integer.parseInt(br.readLine());
-
+        br.readLine();
         var sb = new StringBuilder();
-        String[] targets = br.readLine().split(" ");
-
-        for (String target : targets) {
-            int key = Integer.parseInt(target);
-            sb.append(map.getOrDefault(key, 0)).append(" ");
+        for (String target : br.readLine().split(" ")) {
+            int input = Integer.parseInt(target);
+            sb.append(map.getOrDefault(input, 0)).append(" ");
         }
 
         System.out.println(sb);
