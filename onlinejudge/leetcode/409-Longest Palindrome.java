@@ -22,7 +22,7 @@ class Solution {
     
         for (var element : map.entrySet()) {
             int value = element.getValue();
-            if (value % 2 != 0 ) {
+            if (value % 2 != 0) {
                 if (isOdd) {
                     if (value > 1) {
                         answer += value - 1;
