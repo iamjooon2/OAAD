@@ -16,19 +16,14 @@ class Solution {
         int sum = 0;
         for (int i = 1; i < s.length(); i += 1) {
             int left = VALUE.get(arr[i - 1]);
-            int right = VALUE.getOrDefault(arr[i], NONE);
+            int right = VALUE.get(arr[i]);
 
             if (left < right) {
-                if (right == NONE) {
-                    sum += left;
-                }
                 sum -= left;
-                
             } else {
                 sum += left;
             }
         }
-
         return sum + VALUE.get(arr[s.length() - 1]);
     }
 }
