@@ -1,12 +1,7 @@
 func reverseString(s []byte) {
-	stack := []byte{}
-
-	for i := 0; i < len(s); i++ {
-			stack = append(stack, s[i])
-	}
-
-	for i := 0; i < len(s); i++ {
-			s[i] = stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
+	for i := 0; i < len(s)/2; i += 1 {
+		temp := s[i]
+		s[i] = s[len(s)-1-i]
+		s[len(s)-1-i] = temp
 	}
 }
