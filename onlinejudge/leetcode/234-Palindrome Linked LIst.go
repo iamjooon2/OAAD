@@ -10,7 +10,7 @@ func isPalindrome(head *ListNode) bool {
 	}
 
 	size := len(list)
-	for i := 0; i < size/2; i++ {
+	for i := 0; i < size / 2; i++ {
 		if list[i] != list[size-i-1] {
 			return false
 		}
