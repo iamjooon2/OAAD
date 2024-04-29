@@ -5,9 +5,6 @@ class Solution {
             nonDuplicates.add(num);
         }
 
-        if (nums.length == nonDuplicates.size()) {
-            return false;
-        }
-        return true;
+        return nums.length != nonDuplicates.size();
     }
 }
