@@ -14,10 +14,7 @@ public class Main {
             for (char alphabet : word.toCharArray()) {
                 if (stack.isEmpty()) {
                     stack.push(alphabet);
-                    continue;
-                }
-
-                if (stack.peek().equals(alphabet)) {
+                } else if (stack.peek().equals(alphabet)) {
                     stack.pop();
                 } else {
                     stack.push(alphabet);
