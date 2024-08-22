@@ -9,7 +9,6 @@ public class Main {
     static final List<String> VOWELS = List.of(
             "a", "e", "i", "o", "u"
     );
-
     public static void main(String[] args) {
         while (true) {
             String input = scan.nextLine();
@@ -78,5 +77,4 @@ public class Main {
             System.out.println("<" + input + "> is not acceptable.");
         }
     }
-
 }
