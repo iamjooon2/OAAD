@@ -4,7 +4,7 @@ class Solution {
     private static final int[] FIRST = {1, 2, 3, 4, 5};
     private static final int[] SECOND = {2, 1, 2, 3, 2, 4, 2, 5};
     private static final int[] THIRD = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5};
-    int[] score = {0,0,0};
+    private int[] score = {0,0,0};
     
     public int[] solution(int[] answers) {
         for(int i=0; i<answers.length; i++) {
