@@ -25,3 +25,6 @@ class Solution {
         return result;
     }
 }
+
+write up
+- 테스트케이트 중 정답 500억이 있어 데이터 타입 long으로 변경
