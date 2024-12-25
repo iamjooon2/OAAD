@@ -1,11 +1,9 @@
 class RandomizedSet {
 
     final Map<Integer, Integer> map;
-    int randomIndex;
 
     public RandomizedSet() {
         map = new HashMap<>();
-        randomIndex = 0;
     }
     
     public boolean insert(int val) {
