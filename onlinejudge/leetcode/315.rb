@@ -11,3 +11,4 @@ def is_array_special(nums)
   }
   true
 end
+
