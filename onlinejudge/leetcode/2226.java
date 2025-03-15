@@ -10,7 +10,7 @@ class Solution {
 
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (canDistribute(candies, k, mid)) {
+            if (isDistributable(candies, k, mid)) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
@@ -19,7 +19,7 @@ class Solution {
         return right;
     }
 
-    private boolean canDistribute(int[] candies, long k, int pileSize) {
+    private boolean isDistributable(int[] candies, long k, int pileSize) {
         long count = 0;
         for (int candy : candies) {
             count += candy / pileSize;
